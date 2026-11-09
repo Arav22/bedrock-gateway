@@ -1,0 +1,11 @@
+services:
+  bedrock-gateway:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - AWS_REGION=us-east-1
+      - AWS_PROFILE=${AWS_PROFILE:-}
+    volumes:
+      - ~/.aws:/root/.aws:ro
+    restart: unless-stopped
